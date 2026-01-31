@@ -24,6 +24,7 @@ use crate::database::{self, Database, KvMut};
 use crate::models::{ThemeData, WindowState};
 use crate::utilities::file_dialog;
 use crate::{business, consts};
+use crate::oauth;
 
 struct WindowStateCache(Arc<Mutex<WindowState>>);
 
@@ -324,6 +325,11 @@ pub async fn start(singleton: Singleton, tracing: Tracing, database: Database) {
       business::business_gacha_metadata_is_updating,
       business::business_gacha_metadata_update,
       business::business_gacha_metadata_item_name_from_id,
+      oauth::oauth_get_authorize_url,
+      oauth::oauth_listen_for_callback,
+      oauth::oauth_refresh_token,
+      oauth::oauth_upload_records,
+      oauth::oauth_start_db_watcher,
     ])
     .build(generate_context!())
     .expect("Error while building Tauri application");

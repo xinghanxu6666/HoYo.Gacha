@@ -1,4 +1,4 @@
-use std::env;
+use cstd::env;
 use std::path::PathBuf;
 use std::sync::LazyLock;
 
@@ -80,6 +80,10 @@ pub const ENV_DEVTOOLS: &str = "HG_DEVTOOLS";
 
 pub const KV_THEME_DATA: &str = "HG_THEME_DATA";
 pub const KV_WINDOW_STATE: &str = "HG_WINDOW_STATE";
+// KV for third-party pan OAuth credentials
+pub const KV_PAN_OAUTH: &str = "HG_PAN_OAUTH";
+// KV for storing the last used upload URL for pan/cloudreve
+pub const KV_PAN_UPLOAD_URL: &str = "HG_PAN_UPLOAD_URL";
 
 // Event
 
